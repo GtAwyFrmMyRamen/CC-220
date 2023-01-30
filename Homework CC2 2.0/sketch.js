@@ -191,5 +191,4 @@ function setup()
      opacity -= 0.5;
 
      stroke(0, 0, 0);
-
 }
