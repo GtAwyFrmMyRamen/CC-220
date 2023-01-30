@@ -149,7 +149,7 @@ function setup()
                 text('カレー', 0, 30);
                 text('Ian McGowan', 300, 590)
 
-
+//rework later? to decrease complexity
   if(keyIsPressed)
   {
     if (key === ' ') {
