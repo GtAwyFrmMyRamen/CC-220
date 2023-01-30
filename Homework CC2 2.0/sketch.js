@@ -1,11 +1,11 @@
-let start = 0;
+var start = 0;
 
-let opacity = 255;
-let text2 = "Press Spacebar to scatter the beef!"
+var opacity = 255;
+var text2 = "Press Spacebar to scatter the beef!"
 
-let myArray = [];
-let myArrayY = [];
-let myArrayD = [];
+var myArray = [];
+var myArrayY = [];
+var myArrayD = [];
 
 var DD = 0
 var bx1 = 230
@@ -20,13 +20,13 @@ var by4 = 340
 function setup()
             {
                 createCanvas(500, 600);
-                for (let i = 1; i <= 500; i++) {
+                for (var i = 1; i <= 500; i++) {
                     myArray.push(i);
                 }
-                for (let i = 1; i <= 600; i++) {
+                for (var i = 1; i <= 600; i++) {
                     myArrayY.push(i);
                 }
-                for (let i = 1; i <= 150; i++) {
+                for (var i = 1; i <= 150; i++) {
                     myArrayD.push(i);
                 }
             }
@@ -45,38 +45,38 @@ function setup()
 
                 //steam
                 noFill();
-                let b1 = 255;
-                let v1 = 20 + sin(start) * 20;
-                let b2 = 10;
-                let v2 = 210 + sin(start + 1) * 20;
-                let b3 = 290;
-                let v3 = 90 + sin(start + 2) * 20;
-                let b4 = 200;
-                let v4 = 180 + sin(start + 3) * 20;
+                var b1 = 255;
+                var v1 = 20 + sin(start) * 20;
+                var b2 = 10;
+                var v2 = 210 + sin(start + 1) * 20;
+                var b3 = 290;
+                var v3 = 90 + sin(start + 2) * 20;
+                var b4 = 200;
+                var v4 = 180 + sin(start + 3) * 20;
               
                 bezier(b1, v1, b2, v2, b3, v3, b4, v4);
                 
                 noFill();
-                let n1 = 295;
-                let m1 = 20 + sin(start) * 20;
-                let n2 = 80;
-                let m2 = 220 + sin(start + 3) * 20;
-                let n3 = 370;
-                let m3 = 90 + sin(start + 4) * 20;
-                let n4 = 240;
-                let m4 = 180 + sin(start + 5) * 20;
+                var n1 = 295;
+                var m1 = 20 + sin(start) * 20;
+                var n2 = 80;
+                var m2 = 220 + sin(start + 3) * 20;
+                var n3 = 370;
+                var m3 = 90 + sin(start + 4) * 20;
+                var n4 = 240;
+                var m4 = 180 + sin(start + 5) * 20;
               
                 bezier(n1, m1, n2, m2, n3, m3, n4, m4);
 
                 noFill();
-                let k1 = 345;
-                let l1 = 20 + sin(start) * 20;
-                let k2 = 150;
-                let l2 = 220 + sin(start + 5) * 20;
-                let k3 = 470;
-                let l3 = 90 + sin(start + 6) * 20;
-                let k4 = 300;
-                let l4 = 180 + sin(start + 7) * 20;
+                var k1 = 345;
+                var l1 = 20 + sin(start) * 20;
+                var k2 = 150;
+                var l2 = 220 + sin(start + 5) * 20;
+                var k3 = 470;
+                var l3 = 90 + sin(start + 6) * 20;
+                var k4 = 300;
+                var l4 = 180 + sin(start + 7) * 20;
               
                 bezier(k1, l1, k2, l2, k3, l3, k4, l4);
 
@@ -149,38 +149,42 @@ function setup()
                 text('カレー', 0, 30);
                 text('Ian McGowan', 300, 590)
 
+                function mousePressed() {
+                    redraw(5);
+                  }
+
 //rework later? to decrease complexity
   if(keyIsPressed)
   {
     if (key === ' ') {
-        let randomIndex = floor(random(myArrayD.length));
-        let randomNumberD = myArrayD[randomIndex];
+        var randomIndex = floor(random(myArrayD.length));
+        var randomNumberD = myArrayD[randomIndex];
         DD = randomNumberD
     }
     if (key === ' ') {
-        let randomIndex = floor(random(myArray.length));
-        let randomNumber = myArray[randomIndex];
-        let randomNumber2 = myArray[randomIndex + DD];
-        let randomNumber3 = myArray[randomIndex + DD];
-        let randomNumber4 = myArray[randomIndex + DD];
+        var randomIndex = floor(random(myArray.length));
+        var randomNumber = myArray[randomIndex];
+        var randomNumber2 = myArray[randomIndex + DD];
+        var randomNumber3 = myArray[randomIndex + DD];
+        var randomNumber4 = myArray[randomIndex + DD];
         bx1 = randomNumber;
         bx2 = randomNumber2;
         bx3 = randomNumber3;
         bx4 = randomNumber4;
     }
     if (key === ' ') {
-        let randomIndex = floor(random(myArrayY.length));
-        let randomNumber = myArrayY[randomIndex];
-        let randomNumber2 = myArrayY[randomIndex + DD];
-        let randomNumber3 = myArrayY[randomIndex + DD];
-        let randomNumber4 = myArrayY[randomIndex + DD];
+        var randomIndex = floor(random(myArrayY.length));
+        var randomNumber = myArrayY[randomIndex];
+        var randomNumber2 = myArrayY[randomIndex + DD];
+        var randomNumber3 = myArrayY[randomIndex + DD];
+        var randomNumber4 = myArrayY[randomIndex + DD];
         by1 = randomNumber;
         by2 = randomNumber2;
         by3 = randomNumber3;
         by4 = randomNumber4;
     }
   }
-     //text 2 idk im treading water at this point
+     //text 2 fade idk im treading water at this point
      fill(0, opacity);
      stroke(0, opacity);
      text(text2, 0, 500);
