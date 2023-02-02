@@ -1,7 +1,23 @@
 var start = 0;
-
+var img;
+var img2;
+var img3;
+var fx;
+var fy;
+var fxSpeed;
+var fySpeed;
+var myFont;
+var count = 20;
+var startTime;
+function preload() {
+    img = loadImage('images/fork.png');
+    img2 = loadImage('images/spoon.png');
+    img3 = loadImage('images/wood.jpg');
+    myFont = loadFont('assets/ACES07_Regular.otf');
+}
 var opacity = 255;
 var text2 = "Press Spacebar to scatter the beef!"
+var text3 = "The Curry got cold!"
 
 var myArray = [];
 var myArrayY = [];
@@ -17,9 +33,17 @@ var by3 = 240
 var bx4 = 175
 var by4 = 340
 
-function setup()
-            {
+function setup() {
+                bg = loadImage('images/wood.jpg');
+                img = loadImage('images/fork.png');
+                img2 = loadImage('images/spoon.png')
+                textFont(myFont)
                 createCanvas(500, 600);
+                fx = 50;
+                fy = 300;
+                fxSpeed = 3;
+                fySpeed = 3;
+                startTime = millis();
                 for (var i = 1; i <= 500; i++) {
                     myArray.push(i);
                 }
@@ -30,15 +54,21 @@ function setup()
                     myArrayD.push(i);
                 }
             }
-
-            function draw()
-            {
-                background(242, 109, 109);
+            function draw() {
+                background(bg);
+                text(count, 10, 300)
+                var elapsedTime = millis() - startTime;
+                if (elapsedTime >= 1000) {
+                  count--;
+                  startTime = millis();
+                }
+                if (count < 0) {
+                  text(text3, 115, 450)
+                }
                 //plate
                 fill(255, 250, 209);
                 ellipse(250,280,350,260)
                 ellipse(250,280,320,230)
-
                 //curry
                 fill(115, 73, 34);
                 arc(240, 280, 210, 200, 190, 150, PI + QUARTER_PI, CHORD);   
@@ -143,15 +173,27 @@ function setup()
                 square(bx4, by4, 25,)
 
                 // Signature
-                noFill();
+                fill(232, 113, 0);
                 stroke(0, 0, 0);
                 textSize(32);
-                text('カレー', 0, 30);
-                text('Ian McGowan', 300, 590)
+                text('CURRY', 5, 30);
+                text('IAN MCGOWAN', 295, 590)
 
                 function mousePressed() {
                     redraw(5);
                   }
+                //UTENSILS HAHAHAHA GOTCHA TO WORK BITCH
+                image(img, fx, fy, img.width / 3, img.height / 3)
+                fx += fxSpeed;
+                fy += fySpeed;
+                //gave up fix later works for now
+                if (fx > width - img.width / 2 || fx < img.width / 2) {
+                    fxSpeed = -fxSpeed;
+                }
+                if (fy > height - img.height / 2 || fy < img.height / 2) {
+                    fySpeed = -fySpeed;
+                }
+                image(img2, 275, 200, img.width / 3, img.height / 3)
 
 //rework later? to decrease complexity
   if(keyIsPressed)
@@ -187,7 +229,8 @@ function setup()
      //text 2 fade idk im treading water at this point
      fill(0, opacity);
      stroke(0, opacity);
-     text(text2, 0, 500);
+     textSize(30);
+     text(text2, 5, 500);
      opacity -= 0.5;
 
      stroke(0, 0, 0);
