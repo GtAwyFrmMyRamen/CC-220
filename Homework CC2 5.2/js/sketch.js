@@ -20,10 +20,10 @@ function preload() {
     img2 = loadImage('images/spoon.png');
     img3 = loadImage('images/wood.jpg');
     myFont = loadFont('assets/ACES07_Regular.otf');
-    idleAnimation = loadStrings("../assets/idle.txt");
-    walkAnimation = loadStrings("../assets/walk.txt");
-    walkLeftAnimation = loadStrings("../assets/walkL/walkL.txt")
-    // runAnimation = loadStrings("../assets/run.txt");
+    idleAnimation = loadStrings("./assets/idle.txt");
+    walkAnimation = loadStrings("./assets/walk.txt");
+    walkLeftAnimation = loadStrings("./assets/walkL/walkL.txt")
+    // runAnimation = loadStrings("./assets/run.txt");
 }
 
 var myArray = [];
