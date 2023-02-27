@@ -20,4 +20,6 @@ class haru
             this.girlObjects[j] = girl;
         }
     }
+
+
 }
