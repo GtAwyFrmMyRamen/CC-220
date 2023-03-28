@@ -34,7 +34,7 @@ function setup() {
   bg = loadImage('images/wood.jpg');
   image(win, 0, 0)
   image(lose, 0, 0)
-  //BGM.loop();
+  BGM.loop();
   createCanvas(800, 600);
   world.gravity.y = 0;
   myAnimation = new animationImage(0, 0, 150, 150);
